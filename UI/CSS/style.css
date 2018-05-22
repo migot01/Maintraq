@@ -99,7 +99,56 @@ header a:hover{
     font-weight: bold;
 }
 
+form {
+    max-width: 350px;
+    background: #ffffff;
+    padding: 10px;
+    color: black ;
+    font-family: sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: auto;
+    font-size: 12px;
+   
 
+}
+.form-container{
+    border: 0px solid;
+    padding: 30px 60px;
+    margin-top: 10vh;
+    -webkit-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+     box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+}
+.form-container h2{
+    text-align: center;
+    font-weight: bold;
+}
+input[type=text],input[type=password]{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+
+}
+input[type=submit] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    background: #8B4513;
+    border: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.pass{
+    color: #8B4513;
+    padding: 20px;}
+
+.txt {
+    font-size: 15px;
+}
 
 /* footer */
 footer{
@@ -150,5 +199,8 @@ header li,
    nav ul li {
     display: block;
 }
+   input[type=submit]{
+       width: 100%;
+   }
 
 } 
