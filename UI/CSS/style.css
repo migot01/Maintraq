@@ -180,6 +180,15 @@ input[name=location] {
     border: none;
     background-color: #f1f1f1;
 }
+input[type=texts]{
+    width: 30%;
+    padding:15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background-color: #ffffff;
+   margin-top: 20px;
+}
 
 
 textarea {
@@ -197,6 +206,7 @@ textarea {
     float: left;;
     width: 30%;
     border-radius: 5px;
+   
 }
 button {
     background-color: #8B4513;
@@ -207,6 +217,7 @@ button {
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
+
 }
 .pass{
     color: #8B4513;
@@ -220,14 +231,16 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 85%;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 10px;
     
 }
 td, th {
-    border: 1px solid black;
+    border: 3px solid black;
     text-align: left;
     padding: 10px;
+    text-align: left;
+    padding: 8px;
 }
 .form-inline{
     margin-top: 5px;
@@ -236,6 +249,25 @@ td, th {
     text-align: center;
     font-weight: bold;
 }
+
+.sign-up {
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    width: 700px;
+    padding: 10px;
+    margin-top: 40px;
+    
+}
+tr:nth-child(odd) {
+    background-color: rgba(134, 29, 29, 0.753);  
+}
+
+.user-request-table {
+    margin: 0px 200px;
+    min-height: 680px;
+}
+
 
 
 
@@ -294,5 +326,14 @@ header li,
    .requestbtn{
        width: 50%;
    }
+
+   .sign-up {
+    width: 100%;
+    padding: 0px;
+
+}
+.user-request-table {
+    margin: 0px;
+}
 
 } 
