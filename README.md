@@ -9,7 +9,10 @@ This is an application that provides users with the ability to reach out to oper
 * [Admin can respond to a request. ](https://migot01.github.io/Maintraq/UI/adminresponserequest.html) 
 * [Admin can log in.](https://migot01.github.io/Maintraq/UI/login.html)  
 * [Admin can view all requests made to this app and respond accordingly.](https://migot01.github.io/Maintraq/UI/adminpage.html)   
-### Technology Used    
+### How should this be manually tested?
+Clone or download the repo. Navigate to the directory called UI and open any of the html file on any browser.
+
+### Technology Used   
 HTML  
 CSS  
 ## Deployment  
