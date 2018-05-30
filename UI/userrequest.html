@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewpoint" content="width=device-width">
+      <meta name="description" content="Maintenance Tracker">
+      <meta name="keyword"  content="Maintenance Tracker ">
+      <meta name="author" content="Patrick Migot">
+    <title>Maintenance Tracker | Register</title>
+     <link rel="stylesheet" href="./CSS/style.css">
+    </head>
+    <body>
+        <header> 
+                <nav>
+                    
+                    <ul class="active">
+                        <li ><a class="current" href="index.html">Home</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="userrequest.html">Create request</a></li>
+                        <li><a href="userrequest_list.html">Request list</a></li>
+                        <li><a href="adminresponserequest.html">Admin Response</a></li>
+                        <li><a href="adminpage.html">Admin Page</a></li>
+                  </ul>
+                </nav>
+           
+        </header>
+        
+        <div class="card">
+                <div class="container1">
+                    <form1 action="">
+                        <div class="form-container">
+                            <h1>Request Form</h1>
+                            <hr>
+                            <label for="requestdate"><b>Request Date:</b></label>
+                            <input type="datetime" placeholder="Date of request creation" name="requestdate" required>
+                            &nbsp;
+                            &nbsp;
+                            <label for="requester"><b>Requesting Party:</b></label>
+                            <input type="text" placeholder="Enter requesters name" name="requester" required>
+                            <br>
+                            <br>
+                            <label for="location"><b>Work location:</b></label>
+                            <input type="text" placeholder="Enter work location" name="location" required>
+                            <br>
+                            <br>
+                            <label for="description"><b>Description of work or repair:</b></label>
+                            <textarea id="description" name="description" placeholder="Describe work/repair.." 
+                            style="height:200px" required></textarea>
+                            <br>
+                        </div>
+                        <div>
+                            <button type="submit" class="requestbtn">Create Request</button>
+                        </div>
+                    </form1>
+                </div>
+            </div>
+        <footer>
+            <div class="container">
+            <p>Maintraq, Copyright &copy; 2017</p>
+                        </div>
+        </footer>
+
+    </body>
+</html>
