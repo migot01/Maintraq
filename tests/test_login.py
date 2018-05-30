@@ -15,18 +15,18 @@ class LoginuserTestcase(unittest.TestCase):
 
 
     def test_user_can_login(self):
-        login=self.client().post('/api/v1/login',data=json.dumps(self.login),
+        login=self.client().post('/api/v1/login',data=json.dumps(self.logins),
                               headers={"content-type":"applocation/json"})
         self.assertEqual(login.status_code,200)
 
     def test_cannot_login_if_not_registered(self):
-        login=self.client().post('/api/v1/login',data=json.dumps(self.login),
+        login=self.client().post('/api/v1/login',data=json.dumps(self.logins),
                               headers={"content-type":"applocation/json"})
         self.assertEqual(login.status_code,401)
         self.assertIn ("username not found!",login.data)
 
     def test_login_details_required(self):
-        login=self.client().post('/api/v1/login',data=json.dumps(self.login),
+        login=self.client().post('/api/v1/login',data=json.dumps(self.logins),
                               headers={"content-type":"applocation/json"})
         self.assertEqual(login.status_code,400)
         self.assertIn("Login required",login.data)
