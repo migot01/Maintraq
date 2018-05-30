@@ -10,7 +10,7 @@ class RequeststestCase(unittest.TestCase):
         """
         self.app = create_app (config_name= 'testing')
         self.client = self.app.test_client
-        self.empty_request = {"title":"",
+        self.empty_request = {"tittle":"",
               "location": "",
               "body": ""
               }
