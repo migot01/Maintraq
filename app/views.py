@@ -5,6 +5,7 @@ import uuid
 from app.models import User,Requests
 
 user_info=User()
+request_model=Requests()
 
 @app.route('/api/v1/register', methods=['POST'])
 def register():
