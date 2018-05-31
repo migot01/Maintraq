@@ -115,6 +115,32 @@ def get_all_requests(current_user):
         all_requests.append(request)
     return jsonify(all_requests)
 
+@app.route('/api/v1/request/<requestId>', methods=['POST'])
+@login_required
+def update_business( current_user,requestId):
+    
+    """ Get request id and update request"""
+    try:
+        if requestId not in request_model.requests:
+            return jsonify({"message": "request not found"})
+        req = request_model.requests[requestId]
+        data = request.get_json()
+        if req['user_id'] == current_user['username']:
+            req['location'] = data['location'].strip()
+            req['title'] = data['title'].strip()
+            req['body'] = data['body'].strip()
+            
+            return jsonify({
+                "message": "request updated!",
+                "request": req
+            }), 202
+        return jsonify({
+            "message": "Sorry! You can only update your request!!"}), 401
+    except Exception as e:
+        return jsonify({
+            "Error": "Error!, check you are sending correct information"
+        })
+
 
 
 
