@@ -1,0 +1,5 @@
+[
+  "test_requests.py::RequeststestCase::test_can_get_requests",
+  "test_requests.py::RequeststestCase::test_cannot_create_name",
+  "test_requests.py::RequeststestCase::test_request_can_create_successfully"
+]

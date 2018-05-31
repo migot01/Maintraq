@@ -1,6 +1,9 @@
 import unittest
 import json
+from app import app
 from app.views import request_model
+
+from app import create_app
 
 class RequeststestCase(unittest.TestCase):
 
@@ -59,7 +62,7 @@ class RequeststestCase(unittest.TestCase):
         """test can get all requests"""
         self.client().post('/api/v1/request' , data = json.dumps(self.request),
                        headers = {"content-type":"application/json"})
-        res = self.client().get('/api/v1/businesses')
+        res = self.client().get('/api/v1/requests')
         self.assertEqual(len(request_model.requests),1)
 
 

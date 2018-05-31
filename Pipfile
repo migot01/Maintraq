@@ -5,11 +5,11 @@ name = "pypi"
 
 [packages]
 flask = "*"
-jwt = "*"
 pytest = "*"
 request = "*"
 jsonify = "*"
 pylint = "*"
+pyjwt = "*"
 
 [dev-packages]
 
