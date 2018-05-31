@@ -1,5 +1,6 @@
 import unittest
 from app import app
+from app import create_app
 
 import json
 
@@ -8,7 +9,7 @@ class LoginuserTestcase(unittest.TestCase):
     This class implements login user tests
     """
     def setUp(self):
-        self.app=create_app(config_name="testing")
+        self.app = create_app(config_name="testing")
         self.client=self.app.test_client
         self.user={"username":"patrick", "password":"abc.123!",
                    "first_name":"patrick","last_name": "ochieng"}
