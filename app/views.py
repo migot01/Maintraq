@@ -83,6 +83,29 @@ def login():
         return jsonify({
             "Error": "Error!, check you are sending correct information"}), 400
 
+@app.route('/api/v1/request', methods=['POST'])
+@login_required
+def create_request(current_user):
+    """endpoint to create a new request"""
+    try:
+        data = request.get_json()
+        if not data or not data['title'].strip():
+            return jsonify({"message": "Name cannot be empty!"}), 401
+        for req in request_model.requests.values():
+            if data['title'].strip() == req['title']:
+                return jsonify({"message": "Sorry!! Name taken!"}), 401
+        # update request
+        user_id = current_user['username']
+        create = request_model.add_requests(data['title'].strip(),
+                                               data['location'], data['body'],user_id)
+        return jsonify({
+            "message": "Request created", 'request': create
+        }), 201
+    except Exception as e:
+        return jsonify({
+            "Error": "Error!, check you are sending correct information"
+        }), 400
+
 
 
 
