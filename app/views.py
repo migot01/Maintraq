@@ -106,6 +106,15 @@ def create_request(current_user):
             "Error": "Error!, check you are sending correct information"
         }), 400
 
+@app.route('/api/v1/request', methods=['GET'])
+@login_required
+def get_all_requests(current_user):
+    """Gets all requests"""
+    all_requests = []
+    for request in request_model.requests.values():
+        all_requests.append(request)
+    return jsonify(all_requests)
+
 
 
 
