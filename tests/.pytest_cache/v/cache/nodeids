@@ -1,5 +1,5 @@
 [
-  "test_requests.py::RequeststestCase::test_can_get_requests",
-  "test_requests.py::RequeststestCase::test_cannot_create_name",
-  "test_requests.py::RequeststestCase::test_request_can_create_successfully"
+  "test_login.py::LoginuserTestcase::test_cannot_login_if_not_registered",
+  "test_login.py::LoginuserTestcase::test_login_details_required",
+  "test_login.py::LoginuserTestcase::test_user_can_login"
 ]
