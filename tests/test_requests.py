@@ -3,7 +3,7 @@ import json
 from app import app
 from app.views import request_model
 
-from app import create_app
+
 
 class RequeststestCase(unittest.TestCase):
 
