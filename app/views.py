@@ -115,7 +115,7 @@ def get_all_requests(current_user):
         all_requests.append(request)
     return jsonify(all_requests)
 
-@app.route('/api/v1/request/<requestId>', methods=['POST'])
+@app.route('/api/v1/request/<requestId>', methods=['PUT'])
 @login_required
 def update_request( current_user,requestId):
     
