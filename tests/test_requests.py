@@ -44,7 +44,7 @@ class RequeststestCase(unittest.TestCase):
 
     
 
-    def test_business_can_create_successfully(self):
+    def test_request_can_create_successfully(self):
         """Tests that a request can be created successfully"""
         initial_count = len(request_model.requests)
         res = self.client().post('/api/v1/request', data=json.dumps(self.request),
