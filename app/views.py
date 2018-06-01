@@ -117,7 +117,7 @@ def get_all_requests(current_user):
 
 @app.route('/api/v1/request/<requestId>', methods=['POST'])
 @login_required
-def update_business( current_user,requestId):
+def update_request( current_user,requestId):
     
     """ Get request id and update request"""
     try:
