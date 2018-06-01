@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/migot01/Maintraq.svg?branch=challenge-2-develop)](https://travis-ci.org/migot01/Maintraq)
+[![Coverage Status](https://coveralls.io/repos/github/migot01/Maintraq/badge.svg?branch=branch=challenge-2-develop)]
 
 # Maintraq
 This is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.  
