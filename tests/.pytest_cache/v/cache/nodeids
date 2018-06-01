@@ -1,5 +1,16 @@
 [
+  "test_login.py::LoginuserTestcase::test_bad_request_with_wrong_filds",
   "test_login.py::LoginuserTestcase::test_cannot_login_if_not_registered",
   "test_login.py::LoginuserTestcase::test_login_details_required",
-  "test_login.py::LoginuserTestcase::test_user_can_login"
+  "test_login.py::LoginuserTestcase::test_user_can_login",
+  "test_register_user.py::CreateUserTestCase::test_bad_request",
+  "test_register_user.py::CreateUserTestCase::test_cannot_create_duplicate_user",
+  "test_register_user.py::CreateUserTestCase::test_details_missing",
+  "test_register_user.py::CreateUserTestCase::test_password_validation",
+  "test_register_user.py::CreateUserTestCase::test_user_creation",
+  "test_requests.py::RequeststestCase::test_business_can_create_successfully",
+  "test_requests.py::RequeststestCase::test_cannot_create_duplicate",
+  "test_requests.py::RequeststestCase::test_cannot_create_with_name",
+  "test_update_request.py::CreateUserTestCase::test_can_get_request",
+  "test_update_request.py::CreateUserTestCase::test_request_can_updated_successfully"
 ]

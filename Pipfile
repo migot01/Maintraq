@@ -10,6 +10,7 @@ request = "*"
 jsonify = "*"
 pylint = "*"
 pyjwt = "*"
+coveralls = "*"
 
 [dev-packages]
 
