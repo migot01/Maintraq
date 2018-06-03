@@ -17,11 +17,11 @@ POST /api/v1/register Creates a user account
 POST /api/v1/login Logs in a user    
 POST /api/v1/logout Logout a user  
 ### Request Endpoints  
-POST /api/v1/request Register a new business  
-GET /api/v1/request List all requests  
-GET /api/v1/request/<requestId> returns a single request  
-PUT /api/v1/request/<requestId> Update request  
-DELETE /api/v2/request/<requestId> deletes a request 
+POST /api/v1/request  Register a new business  
+GET /api/v1/request  List all requests  
+GET /api/v1/request/requestId  returns a single request  
+PUT /api/v1/request/requestId  Update request  
+DELETE /api/v2/request/requestId  deletes a request 
 
 ### User Interface Features  
 * Users can [register](https://migot01.github.io/Maintraq/UI/register.html) for a free account.  
