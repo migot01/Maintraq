@@ -11,6 +11,7 @@ jsonify = "*"
 pylint = "*"
 pyjwt = "*"
 coveralls = "*"
+gunicorn = "*"
 
 [dev-packages]
 
