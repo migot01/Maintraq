@@ -20,7 +20,7 @@ class Requests(object):
     def __init__(self):
         self.requests = {}
 
-    def add_requests(self, title, location, category, body, user_id):
+    def add_requests(self, title, location, body,user_id):
         """Adds a new request to the requests dictionary"""
         id=str(len(self.requests)+1)
         new_request = {
