@@ -1,8 +1,27 @@
 [![Build Status](https://travis-ci.org/migot01/Maintraq.svg?branch=challenge-2-develop)](https://travis-ci.org/migot01/Maintraq)
 [![Coverage Status](https://coveralls.io/repos/github/migot01/Maintraq/badge.svg?branch=challenge-2-develop)](https://coveralls.io/github/migot01/Maintraq?branch=challenge-2-develop)
+![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 # Maintraq
 This is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.  
+
+## API  
+Prerequisites  
+Python 3.6  
+Virtual Environment  
+Flask  
+ 
+## Api Endpoints  
+### Users Endpoints    
+POST /api/v1/register Creates a user account    
+POST /api/v1/login Logs in a user    
+POST /api/v1/logout Logout a user  
+### Request Endpoints  
+POST /api/v1/request Register a new business  
+GET /api/v1/request List all requests  
+GET /api/v1/request/<requestId> returns a single request  
+PUT /api/v1/request/<requestId> Update request  
+DELETE /api/v2/request/<requestId> deletes a request 
 
 ### User Interface Features  
 * Users can [register](https://migot01.github.io/Maintraq/UI/register.html) for a free account.  
@@ -20,4 +39,5 @@ HTML
 CSS  
 ## Deployment  
 Github Pages :https://migot01.github.io/Maintraq/UI/index.html
+
 
