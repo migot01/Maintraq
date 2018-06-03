@@ -162,3 +162,17 @@ def logout(current_user):
     except:
         return jsonify({'message': 'Invalid token!'})
 
+@app.route('/api/v1/request/<requestId>', methods=['DELETE'])
+@login_required
+def delete_request(current_user,requestId ):
+    """ deletes a request"""
+    if requestId in request_model.requests:
+        reqs = request_model.requests[requestId]
+        if reqs['user_id'] == current_user['username']:
+            del request_model.requests[requestId]
+            return jsonify({
+                "message": "Request Deleted",
+                "Deleted Details": reqs
+            }), 201
+    return jsonify({"message": "Request not found"}), 401
+
