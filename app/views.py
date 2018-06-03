@@ -141,6 +141,14 @@ def update_request( current_user,requestId):
             "Error": "Error!, check you are sending correct information"
         })
 
+@app.route('/api/v1/request/<requestId>', methods=['GET'])
+@login_required
+def get_request(current_user,requestId):
+    if requestId in request_model.requests:
+        data = request_model.requests[requestId]
+        return jsonify(data)
+    return jsonify({"message": "request not found"}), 401 
+
 
 
 
