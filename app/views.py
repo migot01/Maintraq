@@ -149,7 +149,16 @@ def get_request(current_user,requestId):
         return jsonify(data)
     return jsonify({"message": "request not found"}), 401 
 
-
-
-
+@app.route('/api/v1/logout', methods=['POST'])
+@login_required
+def logout(current_user):
+    """method to logout user"""
+    try:
+        token = request.headers['access-token']
+        data = jwt.decode(token, app.config["SECRET_KEY"])
+        if data['username'] in user_info.user_token.keys():
+            del user_info.user_token[data['username']]
+            return jsonify({"message": "Logged out!"}), 200
+    except:
+        return jsonify({'message': 'Invalid token!'})
 
