@@ -4,7 +4,7 @@ conn = psycopg2.connect("dbname='maintraq' user='postgres' host='localhost' pass
 
 cur = conn.cursor()
 
-# create a table
+# create  table
 
 cur.execute("CREATE TABLE IF NOT EXISTS users(id serial PRIMARY KEY, first_name varchar,last_name varchar, email varchar, username varchar, password varchar);")
 
