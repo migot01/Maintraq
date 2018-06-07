@@ -10,7 +10,7 @@ import re
 
 import uuid
 
-from app.models2 import create_user , get_user,get_title,get_username,create_request
+from app.models2 import create_user , get_user,get_title,get_username,create_request,get_requests,get_request
 def login_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -105,4 +105,23 @@ def create_requests(current_user):
     return jsonify({
         "message": "Request created", 'request': requests
     }), 201
-   
+
+@app.route('/api/v2/users/requests', methods=['GET'])
+@login_required
+def get_all_requests(current_user):
+
+    """Gets all requests"""
+    requests = get_requests(current_user['id'])
+    return jsonify({'request': requests})
+
+@app.route('/api/v2/users/requests/<int:id>', methods=['GET'])
+@login_required
+def get_reqsts(current_user,id):
+    requests = get_request(id)
+    return jsonify({'request': requests})
+  
+    
+    
+    
+    
+    

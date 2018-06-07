@@ -43,10 +43,19 @@ def get_title(title):
     item = cur.fetchone()
     conn.commit()
     return item
-        
-    
+def get_requests(UserID):
+   cur.execute("SELECT * FROM REQUESTS WHERE UserID=%s",(UserID,))
+   requests = cur.fetchall()
+   if requests is None:
+       return None
+   conn.commit()
+   return requests
 
-
-
-   
-   
+def get_request(id):
+   cur.execute("SELECT * FROM REQUESTS WHERE id = %s", (id,))
+   requests = cur.fetchone()
+   if requests is None:
+       return None
+   conn.commit()
+   return requests
+         
