@@ -1,4 +1,8 @@
 {
+  "test_register_userV2.py::CreateUserTestCase::test_bad_request": true,
+  "test_register_userV2.py::CreateUserTestCase::test_cannot_create_duplicate_user": true,
+  "test_register_userV2.py::CreateUserTestCase::test_details_missing": true,
+  "test_register_userV2.py::CreateUserTestCase::test_password_validation": true,
   "test_requests.py::RequeststestCase::test_can_get_requests": true,
   "test_requests.py::RequeststestCase::test_cannot_create_name": true,
   "test_requests.py::RequeststestCase::test_request_can_create_successfully": true

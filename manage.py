@@ -22,3 +22,4 @@ cur.execute('SELECT * FROM users')
 items = cur.fetchone()
 print("Migrations done successfully!", items)
 conn.commit()
+
