@@ -144,3 +144,32 @@ def get_all_requests(current_user):
 def get_reqsts(current_user,id):
     requests = get_request(id,current_user["id"])
     return jsonify({'request': requests})
+
+@views2.route('/api/v2/users/requests/<int:id>', methods=['PUT'])
+@login_required
+@role_required(0)
+def update_request( current_user,id):
+    
+    """ Get request id and update request"""
+    data = request.get_json()
+    
+    try:
+        req = get_request(id, current_user['id'])
+        if not req:
+            return jsonify({"message": "request not found"})
+        if req['userid'] == current_user['id']:
+            location = data['location']
+            title = data['title']
+            body = data['body']
+            updated_request(id,title,location,body)
+            return jsonify({
+                    "message": "request updated!",
+                    "request": title
+                }), 202
+        else:
+            return jsonify({
+                'message': "Update request denied"
+            }), 403
+    except Exception as e:
+        print(e)
+        
