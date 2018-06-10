@@ -1,5 +1,11 @@
 {
+  "test_loginV2.py::LoginuserTestcase::test_bad_request_with_wrong_filds": true,
+  "test_register_userV2.py::CreateUserTestCase::test_user_creation": true,
   "test_requests.py::RequeststestCase::test_can_get_requests": true,
   "test_requests.py::RequeststestCase::test_cannot_create_name": true,
-  "test_requests.py::RequeststestCase::test_request_can_create_successfully": true
+  "test_requestsV2.py::RequeststestCase::test_business_can_create_successfully": true,
+  "test_requestsV2.py::RequeststestCase::test_cannot_create_duplicate": true,
+  "test_requestsV2.py::RequeststestCase::test_cannot_create_with_name": true,
+  "test_requestsV2.py::RequeststestCase::test_request_can_create_successfully": true,
+  "test_update_requestV2.py::CreateUpadateRequestTestCase::test_request_can_updated_successfully": true
 }

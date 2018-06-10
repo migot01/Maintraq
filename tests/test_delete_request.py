@@ -1,5 +1,5 @@
 import unittest
-from app import app,create_app
+from app import app
 import json
 from app.views import user_info,request_model
 
