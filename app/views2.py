@@ -190,4 +190,15 @@ def admin_get_request(current_user,id):
     """Gets a single  requests"""
     requests = admin_get_request_by_id(id)
     return jsonify({'request': requests})
+
+@views2.route('/api/v2/requests/<int:id>/approve', methods=['PUT'])
+@login_required
+@role_required(1)
+def approve_requests(current_user,id):
+    requests = approve_request(id)
+    return jsonify({
+            "message": "Request approved successfully",
+            "id": id
+        })
+
         
