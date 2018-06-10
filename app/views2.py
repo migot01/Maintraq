@@ -172,4 +172,13 @@ def update_request( current_user,id):
             }), 403
     except Exception as e:
         print(e)
+
+@views2.route('/api/v2/requests', methods=['GET'])
+@login_required
+@role_required(1)
+def admin_get_all_requests(current_user):
+
+    """Gets all requests"""
+    requests = admin_get_all(current_user['id'])
+    return jsonify({'request': requests})
         
