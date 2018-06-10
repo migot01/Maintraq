@@ -16,6 +16,10 @@ import uuid
 from app.helpers import create_user , get_user,get_title,get_username,create_request,get_requests,\
 get_request,updated_request,admin_get_all,admin_get_request_by_id ,approve_request,disapprove_request,\
 resolve_request
+
+views2 = Blueprint('views2', __name__)
+user = User()
+
 def login_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
