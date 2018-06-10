@@ -3,6 +3,7 @@ from app import app
 #from app import create_app
 from app.views2 import User
 
+
 import json
 
 class LoginuserTestcase(unittest.TestCase):
@@ -11,6 +12,7 @@ class LoginuserTestcase(unittest.TestCase):
     """
     def setUp(self):
         self.client = app.test_client
+        
         self.user = {
             
             "email": "migot@gmail.com",

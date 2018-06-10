@@ -1,8 +1,8 @@
 import unittest
 from app import app
 import json
-from tests.testdb_migration import migration
-from config import conn
+# from tests.testdb_migration import migration
+# from config import conn
 import psycopg2
 from psycopg2.extras import RealDictCursor
 #from app.views2 import user_info
