@@ -17,23 +17,7 @@ class CreateUserTestCase(unittest.TestCase):
 
     def tearDown(self):
         """ clear data after every test"""
-        
-        
-
-    # def test_user_creation(self):
-    #     """
-    #     Test API can create a user (POST request)
-    #     """
-    #     #initial_count = len(User.query.all())
-    #     res = self.client().post(
-    #         '/api/v2/auth/register',
-    #         data=json.dumps(self.user),
-    #         headers={"content-type": 'application/json'}
-    #     )
-    #     #final_count = len(User.query.all())
-    #     self.assertEqual(res.status_code, 201)
-    #     #self.assertEqual(final_count - initial_count, 1)
-
+  
     def test_cannot_create_duplicate_user(self):
         """
         Tests that duplicate usernames cannot be created

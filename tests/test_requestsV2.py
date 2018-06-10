@@ -1,8 +1,6 @@
 import unittest
 from app import app
 import json
-import psycopg2
-from psycopg2.extras import RealDictCursor
 
 class RequeststestCase(unittest.TestCase):
     
