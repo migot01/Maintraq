@@ -1,6 +1,5 @@
 import unittest
 from app import app
-#from app import create_app
 from app.views2 import User
 
 

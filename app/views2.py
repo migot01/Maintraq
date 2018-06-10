@@ -1,7 +1,6 @@
 from flask import request, jsonify, make_response, Blueprint
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
-# from app import create_app
 import os
 from app import app
 import datetime
