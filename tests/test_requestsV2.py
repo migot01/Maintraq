@@ -15,14 +15,14 @@ class RequeststestCase(unittest.TestCase):
         self.client = self.app.test_client
         self.user = {
             
-            "email": "moses@gmail.com",
+            "email": "james@gmail.com",
             "password": "qwerty123!@#",
             "first_name": "patrick",
             "last_name": "migot"
         }
 
         self.logins = {
-            "email": "moses@gmail.com",
+            "email": "james@gmail.com",
             "password": "qwerty123!@#"
         }
 
