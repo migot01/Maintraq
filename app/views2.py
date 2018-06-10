@@ -181,4 +181,13 @@ def admin_get_all_requests(current_user):
     """Gets all requests"""
     requests = admin_get_all(current_user['id'])
     return jsonify({'request': requests})
+
+@views2.route('/api/v2/requests/<int:id>', methods=['GET'])
+@login_required
+@role_required(1)
+def admin_get_request(current_user,id):
+
+    """Gets a single  requests"""
+    requests = admin_get_request_by_id(id)
+    return jsonify({'request': requests})
         
