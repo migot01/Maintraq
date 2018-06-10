@@ -1,16 +1,21 @@
-from flask import request, jsonify, make_response
+from flask import request, jsonify, make_response, Blueprint
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
-from app import app
+# from app import create_app
 import os
+from app import app
 import datetime
 from functools import wraps
 import jwt
 import re
+from app.models2 import User,Requests
+
 
 import uuid
 
-from app.models2 import create_user , get_user,get_title,get_username,create_request,get_requests,get_request
+from app.helpers import create_user , get_user,get_title,get_username,create_request,get_requests,\
+get_request,updated_request,admin_get_all,admin_get_request_by_id ,approve_request,disapprove_request,\
+resolve_request
 def login_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -120,8 +125,3 @@ def get_reqsts(current_user,id):
     requests = get_request(id)
     return jsonify({'request': requests})
   
-    
-    
-    
-    
-    
