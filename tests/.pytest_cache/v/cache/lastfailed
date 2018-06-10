@@ -1,9 +1,19 @@
 {
+  "test_delete_request.py": true,
+  "test_login.py": true,
+  "test_loginV2.py::LoginuserTestcase::test_bad_request_with_wrong_filds": true,
+  "test_loginV2.py::LoginuserTestcase::test_cannot_login_if_not_registered": true,
+  "test_loginV2.py::LoginuserTestcase::test_user_can_login": true,
+  "test_logout.py": true,
+  "test_register_user.py": true,
   "test_register_userV2.py::CreateUserTestCase::test_bad_request": true,
   "test_register_userV2.py::CreateUserTestCase::test_cannot_create_duplicate_user": true,
   "test_register_userV2.py::CreateUserTestCase::test_details_missing": true,
-  "test_register_userV2.py::CreateUserTestCase::test_password_validation": true,
+  "test_requests.py": true,
   "test_requests.py::RequeststestCase::test_can_get_requests": true,
   "test_requests.py::RequeststestCase::test_cannot_create_name": true,
-  "test_requests.py::RequeststestCase::test_request_can_create_successfully": true
+  "test_requestsV2.py::RequeststestCase::test_cannot_create_duplicate": true,
+  "test_requestsV2.py::RequeststestCase::test_cannot_create_with_name": true,
+  "test_requestsV2.py::RequeststestCase::test_request_can_create_successfully": true,
+  "test_update_request.py": true
 }

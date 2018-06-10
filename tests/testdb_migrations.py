@@ -13,7 +13,7 @@ def migration():
 
 
         # create user table
-        users = """CREATE TABLE users(id serial PRIMARY KEY, first_name varchar,last_name varchar, email varchar, username varchar, password varchar);"""
+        users = """CREATE TABLE users(id serial PRIMARY KEY, first_name varchar,last_name varchar, email varchar, password varchar);"""
         # create requests table
         requests = """CREATE TABLE requests(id serial PRIMARY KEY, title varchar, location varchar, body varchar, UserID INT REFERENCES users(ID));"""
         cur.execute(users)

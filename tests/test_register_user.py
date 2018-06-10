@@ -1,12 +1,12 @@
 import unittest
-from app import app,create_app
+from app import app
 import json
 from app.views import user_info
-
 
 class CreateUserTestCase(unittest.TestCase):
     
     def setUp(self):
+
         self.client = app.test_client
         self.user = {"username": "patrick", "password": "qwerty123!@#",
                      "first_name": "patrick", "last_name": "migot"}

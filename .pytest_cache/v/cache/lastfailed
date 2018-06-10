@@ -1,0 +1,4 @@
+{
+  "tests/test_register_userV2.py::CreateUserTestCase::test_bad_request": true,
+  "tests/test_register_userV2.py::CreateUserTestCase::test_cannot_create_duplicate_user": true
+}

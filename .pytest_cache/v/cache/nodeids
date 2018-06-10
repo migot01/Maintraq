@@ -1,0 +1,6 @@
+[
+  "tests/test_register_userV2.py::CreateUserTestCase::test_bad_request",
+  "tests/test_register_userV2.py::CreateUserTestCase::test_cannot_create_duplicate_user",
+  "tests/test_register_userV2.py::CreateUserTestCase::test_details_missing",
+  "tests/test_register_userV2.py::CreateUserTestCase::test_password_validation"
+]

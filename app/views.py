@@ -15,7 +15,6 @@ from app.models import User,Requests
 user_info=User()
 request_model=Requests()
 
-
 def login_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -59,7 +58,7 @@ def register():
     except Exception as e:
         return jsonify({
             "Error": "Error!, check you are sending correct information"}), 400
-
+        
 @app.route('/api/v1/login', methods=['POST'])
 def login():
     """login route. users will login to the app via this route"""

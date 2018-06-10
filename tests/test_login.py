@@ -1,5 +1,5 @@
 import unittest
-from app import app
+#from app import create_app
 from app import create_app
 from app.views import user_info
 
@@ -10,7 +10,8 @@ class LoginuserTestcase(unittest.TestCase):
     This class implements login user tests
     """
     def setUp(self):
-        self.client = app.test_client
+        self.app = app
+        self.client = self.app.test_client
         self.user = {"username": "patrick", "password": "qwerty123!@#",
                      "first_name": "patrick", "last_name": "migot"}
         self.logins = {"username": "patrick", "password": "qwerty123!@#"}
