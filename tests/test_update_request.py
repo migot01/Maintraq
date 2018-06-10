@@ -1,10 +1,10 @@
 import unittest
 import json
-from app import app,create_app
+from app import app
 from app.views import request_model
 import os
 
-class CreateUserTestCase(unittest.TestCase):
+class CreateUpadateRequestTestCase(unittest.TestCase):
     """This class represents the api test case"""
 
     def setUp(self):

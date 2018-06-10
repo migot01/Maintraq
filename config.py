@@ -1,9 +1,10 @@
+
 # config.py
 class Config(object):
     """Default configuration"""
 
-    DEBUG = False
-    TESTING = False
+    DEBUG = True
+    TESTING = True
 
 class TestingConfig(Config):
     """Testing configuration"""
