@@ -95,12 +95,7 @@ class RequeststestCase(unittest.TestCase):
         self.assertEquals(response.status_code, 200)
 
         
-    def test_api_to_update_a_request(self):
-        #test api to update a request
-        response = self.client().put('/api/v2/users/requests/1', data=json.dumps(self.request),
-                                 headers={"content-type": "application/json",
-                                          "access-token": self.token})
-        
-        self.assertEquals(response.status_code, 200)        
+  
+              
 
     

@@ -145,6 +145,8 @@ def get_reqsts(current_user,id):
     requests = get_request(id,current_user["id"])
     return jsonify({'request': requests}),200
 
+
+
 @views2.route('/api/v2/users/requests/<int:id>', methods=['PUT'])
 @login_required
 @role_required(0)
