@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/migot01/Maintraq.svg?branch=challenge-2-develop)](https://travis-ci.org/migot01/Maintraq)
-[![Coverage Status](https://coveralls.io/repos/github/migot01/Maintraq/badge.svg?branch=challenge-2-develop)](https://coveralls.io/github/migot01/Maintraq?branch=challenge-2-develop)
+[![Build Status](https://travis-ci.org/migot01/Maintraq.svg?branch=challenge-3-develop)](https://travis-ci.org/migot01/Maintraq)
+[![Coverage Status](https://coveralls.io/repos/github/migot01/Maintraq/badge.svg?branch=challenge-3-develop)](https://coveralls.io/github/migot01/Maintraq?branch=challenge-3-develop)
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 # Maintraq
