@@ -73,7 +73,7 @@ def get_request(id, user_id):
 
 def updated_request(id,title,location,body):
     cur.execute(u"UPDATE requests SET title=%s, location=%s,\
-                       body=%s WHERE id=%s;",
+                       body=%s WHERE id=%s and UserID=%s;",
                        (title,location,body,id,))
     conn.commit()
     return True

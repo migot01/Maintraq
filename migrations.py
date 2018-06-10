@@ -9,14 +9,9 @@ cur.execute("DROP TABLE IF EXISTS requests;")
 cur.execute("DROP TABLE IF EXISTS users;")
 
 
-cur.execute("CREATE TABLE IF NOT EXISTS users\
-        (id serial PRIMARY KEY, first_name varchar,\
-        last_name varchar, email varchar, password varchar,\
-        role INT);")
+cur.execute("CREATE TABLE IF NOT EXISTS users(id serial PRIMARY KEY, first_name varchar,last_name varchar, email varchar, password varchar,role INT);")
 
-cur.execute("CREATE TABLE IF NOT EXISTS requests\
-(id serial PRIMARY KEY, title varchar, \
-location varchar, body varchar,status varchar, UserID INT REFERENCES users(ID));")
+cur.execute("CREATE TABLE IF NOT EXISTS requests(id serial PRIMARY KEY, title varchar, location varchar, body varchar,status varchar, UserID INT REFERENCES users(ID));")
 
 cur.execute("SELECT * FROM users WHERE email = 'admin@andela.com'")
 
