@@ -201,4 +201,13 @@ def approve_requests(current_user,id):
             "id": id
         })
 
+@views2.route('/api/v2/requests/<int:id>/disapprove', methods=['PUT'])
+@login_required
+@role_required(1)
+def disapprove_requests(current_user,id):
+    requests = disapprove_request(id)
+    return jsonify({
+            "message": "Request disapproved successfully",
+            "id": id
+        })
         
