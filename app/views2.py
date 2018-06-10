@@ -127,7 +127,7 @@ def create_requests(current_user):
     return jsonify({
         'message': "Created successfully",
         'request_title': title
-    })
+    }),200
 
 @views2.route('/api/v2/users/requests', methods=['GET'])
 @login_required
@@ -136,14 +136,14 @@ def get_all_requests(current_user):
 
     """Gets all requests"""
     requests = get_requests(current_user['id'])
-    return jsonify({'request': requests})
+    return jsonify({'request': requests}),200
 
 @views2.route('/api/v2/users/requests/<int:id>', methods=['GET'])
 @login_required
 @role_required(0)
 def get_reqsts(current_user,id):
     requests = get_request(id,current_user["id"])
-    return jsonify({'request': requests})
+    return jsonify({'request': requests}),200
 
 @views2.route('/api/v2/users/requests/<int:id>', methods=['PUT'])
 @login_required
@@ -165,7 +165,7 @@ def update_request( current_user,id):
             return jsonify({
                     "message": "request updated!",
                     "request": title
-                }), 202
+                }), 201
         else:
             return jsonify({
                 'message': "Update request denied"

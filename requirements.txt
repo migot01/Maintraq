@@ -25,6 +25,7 @@ mccabe==0.6.1
 more-itertools==4.2.0
 pluggy==0.6.0
 post==1.0.2
+psycopg2==2.7.4
 public==1.0.3
 py==1.5.3
 pycparser==2.18
