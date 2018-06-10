@@ -67,7 +67,7 @@ class RequeststestCase(unittest.TestCase):
             }
         )
         
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.status_code, 201)
 
     def test_api_for_user_read_all_request(self):
         #test endpoint for user to view requests

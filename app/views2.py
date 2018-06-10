@@ -127,7 +127,7 @@ def create_requests(current_user):
     return jsonify({
         'message': "Created successfully",
         'request_title': title
-    }),200
+    }),201
 
 @views2.route('/api/v2/users/requests', methods=['GET'])
 @login_required
