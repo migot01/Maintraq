@@ -210,4 +210,14 @@ def disapprove_requests(current_user,id):
             "message": "Request disapproved successfully",
             "id": id
         })
+
+@views2.route('/api/v2/requests/<int:id>/resolve', methods=['PUT'])
+@login_required
+@role_required(1)
+def resolve_requests(current_user,id):
+    requests = resolve_request(id)
+    return jsonify({
+            "message": "Request resolved successfully",
+            "id": id
+        })
         
