@@ -3,25 +3,37 @@
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 # Maintraq
-This is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.  
+MainTraq (from Maintenance Tracker) is an online maintenance/repairs requests tracker that keeps record of maintenance tasks requested by its users within a particular facility. It provides a platform where a user can file a maintenance request online and obtain feedback about the same from the facility admin. The facility can be (but not limited to) an organisation or an organisation's department.
+
+## Hosted versions of the API
+
+https://maintraqa.herokuapp.com/
 
 ## API  
 Prerequisites  
 Python 3.6  
 Virtual Environment  
 Flask  
+Postman  
+Postgresql and have a user: postgres and a matching password.
  
 ## Api Endpoints  
-### Users Endpoints    
-POST /api/v1/register Creates a user account    
-POST /api/v1/login Logs in a user    
-POST /api/v1/logout Logout a user  
-### Request Endpoints  
-POST /api/v1/request  Register a new business  
-GET /api/v1/request  List all requests  
-GET /api/v1/request/requestId  returns a single request  
-PUT /api/v1/request/requestId  Update request  
-DELETE /api/v2/request/requestId  deletes a request 
+API Endpoints
+
+
+Request Type	Endpoint	Note  
+POST	/api/v2/auth/register	Register a user.  
+POST	/api/v2/auth/login	Login a user.  
+GET	/api/v2/users/requests	Fetch all the requests of a logged in user.  
+GET	/api/v2/users/requests/<int:id>	Fetch a request that belongs to a logged in user.  
+POST	/api/v2/Auth/request	Create a request.  
+PUT	/api/v2/users/requests/<int:id>	Modify a request. This operation should not be possible when the admin has approved of the request.  
+GET	/api/v2/requests	Fetch all the requests. This is available only to admin users.  
+GET	/requests/<int:request_id>	Fetch any of existing requests. This is available only to admin users.  
+PUT	/api/v2/requests/<int:id>/approve	Approve request. This is available only to admin users. When this endpoint is called, the status of the request should be pending.    
+PUT	/api/v2/requests/<int:id>/disapprove	Disapprove request. This is available only to admin users.  
+PUT	/api/v2/requests/<int:id>/resolve	Resolve request. This is available only to admin users.  
+
 
 ### User Interface Features  
 * Users can [register](https://migot01.github.io/Maintraq/UI/register.html) for a free account.  
@@ -33,6 +45,58 @@ DELETE /api/v2/request/requestId  deletes a request
 * [Admin can view all requests made to this app and respond accordingly.](https://migot01.github.io/Maintraq/UI/adminpage.html)   
 ### How should this be manually tested?
 Clone or download the repo. Navigate to the directory called UI and open any of the html file on any browser.
+Clone the repository
+
+git clone https://github.com/migot01/Maintraq/
+
+Change directory
+
+cd Maintraq
+
+Checkout on develop branch
+
+git checkout develop
+
+To view UI designs navigate to the UI/ directory.
+
+cd ui/
+
+Then open index.html on your browser.
+
+To setup API locally, make sure you are in the base project folder Maintenance-Tracker
+
+Set up a virtual environment and activate (python 3.6)
+
+pip install virtualenv virtualenv -p python3.6 venv source venv/bin/activate
+
+Install app dependencies
+
+pip install -r requirements.txt
+
+Set up the database and environment variables.
+
+python create_db.py
+
+     Provide your `postgres` user password.
+     Provide a database name on which the app will run
+     Ensure database setup is successful.
+source .env
+
+python migration.py
+
+Run tests
+
+Either
+
+pytest or
+
+nosetests --exe --with-coverage --cover-package=app
+
+The nosetests give a more comprehensive report about test coverage.
+
+Run the flask app
+
+python run.py
 
 ### Technology Used   
 HTML  
