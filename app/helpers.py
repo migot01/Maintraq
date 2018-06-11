@@ -21,8 +21,7 @@ def check_email(email):
 
 def create_user(email, fname, lname, password):
     try:
-        cur.execute(u"INSERT INTO USERS (first_name,last_name,email,password,role) values\
-                    (%s, %s,%s,%s,0);",(fname, lname, email, password,))
+        cur.execute(u"INSERT INTO USERS (first_name,last_name,email,password,role) values(%s, %s,%s,%s,0);",(fname, lname, email, password,))
         conn.commit()
     except Exception as ex:
         print(ex)
