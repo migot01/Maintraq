@@ -19,30 +19,21 @@ Postgresql and have a user: postgres and a matching password.
  
 ## Api Endpoints  
 API Endpoints
+  
+* POST	/api/v2/auth/register	Register a user.  
+* POST	/api/v2/auth/login	Login a user.  
+* GET	/api/v2/users/requests	Fetch all the requests of a logged in user.  
+* GET	/api/v2/users/requests/<int:id>	Fetch a request that belongs to a logged in user.  
+* POST	/api/v2/Auth/request	Create a request.  
+* PUT	/api/v2/users/requests/<int:id>	Modify a request. This operation should not be possible when the admin has approved of the request.  
+* GET	/api/v2/requests	Fetch all the requests. This is available only to admin users.  
+* GET	/requests/<int:request_id>	Fetch any of existing requests. This is available only to admin users.  
+* PUT	/api/v2/requests/<int:id>/approve	Approve request. This is available only to admin users. When this endpoint is called, the status of the request should be pending.    
+* PUT	/api/v2/requests/<int:id>/disapprove	Disapprove request. This is available only to admin users.  
+* PUT	/api/v2/requests/<int:id>/resolve	Resolve request. This is available only to admin users.  
 
 
-Request Type	Endpoint	Note  
-POST	/api/v2/auth/register	Register a user.  
-POST	/api/v2/auth/login	Login a user.  
-GET	/api/v2/users/requests	Fetch all the requests of a logged in user.  
-GET	/api/v2/users/requests/<int:id>	Fetch a request that belongs to a logged in user.  
-POST	/api/v2/Auth/request	Create a request.  
-PUT	/api/v2/users/requests/<int:id>	Modify a request. This operation should not be possible when the admin has approved of the request.  
-GET	/api/v2/requests	Fetch all the requests. This is available only to admin users.  
-GET	/requests/<int:request_id>	Fetch any of existing requests. This is available only to admin users.  
-PUT	/api/v2/requests/<int:id>/approve	Approve request. This is available only to admin users. When this endpoint is called, the status of the request should be pending.    
-PUT	/api/v2/requests/<int:id>/disapprove	Disapprove request. This is available only to admin users.  
-PUT	/api/v2/requests/<int:id>/resolve	Resolve request. This is available only to admin users.  
 
-
-### User Interface Features  
-* Users can [register](https://migot01.github.io/Maintraq/UI/register.html) for a free account.  
-* Users can [log into their accounts.](https://migot01.github.io/Maintraq/UI/login.html)  
-* Users can [make requests to the app.](https://migot01.github.io/Maintraq/UI/userrequest.html)  
-* Users can [see all their requests.](https://migot01.github.io/Maintraq/UI/userrequest_list.html)   
-* [Admin can respond to a request. ](https://migot01.github.io/Maintraq/UI/adminresponserequest.html) 
-* [Admin can log in.](https://migot01.github.io/Maintraq/UI/login.html)  
-* [Admin can view all requests made to this app and respond accordingly.](https://migot01.github.io/Maintraq/UI/adminpage.html)   
 ### How should this be manually tested?
 Clone or download the repo. Navigate to the directory called UI and open any of the html file on any browser.
 Clone the repository
@@ -97,6 +88,15 @@ The nosetests give a more comprehensive report about test coverage.
 Run the flask app
 
 python run.py
+
+### User Interface Features  
+* Users can [register](https://migot01.github.io/Maintraq/UI/register.html) for a free account.  
+* Users can [log into their accounts.](https://migot01.github.io/Maintraq/UI/login.html)  
+* Users can [make requests to the app.](https://migot01.github.io/Maintraq/UI/userrequest.html)  
+* Users can [see all their requests.](https://migot01.github.io/Maintraq/UI/userrequest_list.html)   
+* [Admin can respond to a request. ](https://migot01.github.io/Maintraq/UI/adminresponserequest.html) 
+* [Admin can log in.](https://migot01.github.io/Maintraq/UI/login.html)  
+* [Admin can view all requests made to this app and respond accordingly.](https://migot01.github.io/Maintraq/UI/adminpage.html)   
 
 ### Technology Used   
 HTML  
