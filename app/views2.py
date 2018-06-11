@@ -166,7 +166,7 @@ def update_request( current_user,id):
             return jsonify({
                     "message": "request updated!",
                     "request": title
-                }), 201
+                }), 200
         else:
             return jsonify({
                 'message': "Update request denied"
