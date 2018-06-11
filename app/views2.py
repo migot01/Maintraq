@@ -181,7 +181,7 @@ def admin_get_all_requests(current_user):
 
     """Gets all requests"""
     requests = admin_get_all(current_user['id'])
-    return jsonify({'request': requests})
+    return jsonify({'request': requests}),200
 
 @views2.route('/api/v2/requests/<int:id>', methods=['GET'])
 @login_required
@@ -190,7 +190,7 @@ def admin_get_request(current_user,id):
 
     """Gets a single  requests"""
     requests = admin_get_request_by_id(id)
-    return jsonify({'request': requests})
+    return jsonify({'request': requests}),200
 
 @views2.route('/api/v2/requests/<int:id>/approve', methods=['PUT'])
 @login_required
@@ -200,7 +200,7 @@ def approve_requests(current_user,id):
     return jsonify({
             "message": "Request approved successfully",
             "id": id
-        })
+        }),200
 
 @views2.route('/api/v2/requests/<int:id>/disapprove', methods=['PUT'])
 @login_required
@@ -210,7 +210,7 @@ def disapprove_requests(current_user,id):
     return jsonify({
             "message": "Request disapproved successfully",
             "id": id
-        })
+        }),200
 
 @views2.route('/api/v2/requests/<int:id>/resolve', methods=['PUT'])
 @login_required
@@ -220,5 +220,5 @@ def resolve_requests(current_user,id):
     return jsonify({
             "message": "Request resolved successfully",
             "id": id
-        })
+        }),200
         
