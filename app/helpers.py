@@ -46,8 +46,7 @@ def get_user(email):
 
 def create_request(title,location,body,UserID):
     try:
-        cur.execute(u"INSERT INTO REQUESTS (title,location,body,status,UserID) values\
-                    (%s, %s,%s,'Pending',%s);",(title,location,body,UserID,))
+        cur.execute(u"INSERT INTO REQUESTS (title,location,body,status,UserID) values(%s, %s,%s,'Pending',%s);",(title,location,body,UserID,))
         conn.commit()
         return cur.fetchone()
     except Exception as ex:
@@ -72,9 +71,7 @@ def get_request(id, user_id):
    return request
 
 def updated_request(id,title,location,body):
-    cur.execute(u"UPDATE requests SET title=%s, location=%s,\
-                       body=%s WHERE id=%s;",
-                       (title,location,body,id,))
+    cur.execute(u"UPDATE requests SET title=%s, location=%s,body=%s WHERE id=%s;",(title,location,body,id,))
     conn.commit()
     return True
 
