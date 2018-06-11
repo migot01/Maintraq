@@ -1,8 +1,7 @@
-""" run.py """
-from app import create_app
+from app import views2,app
+         
 import os
 
-from app import views,app
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -12,6 +12,8 @@ pylint = "*"
 pyjwt = "*"
 coveralls = "*"
 gunicorn = "*"
+"psycopg2" = "*"
+nose = "*"
 
 [dev-packages]
 
