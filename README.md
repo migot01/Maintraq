@@ -44,9 +44,9 @@ Change directory
 
 cd Maintraq
 
-Checkout on develop branch
+Checkout on challenge-3-develop branch
 
-git checkout develop
+git checkout challenge-3-develop
 
 To view UI designs navigate to the UI/ directory.
 
@@ -66,7 +66,7 @@ pip install -r requirements.txt
 
 Set up the database and environment variables.
 
-python create_db.py
+python migrations.py
 
      Provide your `postgres` user password.
      Provide a database name on which the app will run
