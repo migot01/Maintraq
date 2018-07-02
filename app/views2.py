@@ -71,7 +71,8 @@ def login():
         token = User().generate_token(user['email'], user['first_name'], user['id'], user['role'])
             
         #get_token[user['username']] = token.decode('UTF-8')
-        return jsonify({"auth_token": token.decode('UTF-8')}), 200
+        return jsonify({"auth_token": token.decode('UTF-8'),"message":"Login successful","role" : user['role']}),200
+
     return jsonify({"message": "Wrong password!"}), 401
 
 @views2.route('/api/v2/auth/register', methods=['POST'])
@@ -135,14 +136,16 @@ def get_all_requests(current_user):
 
     """Gets all requests"""
     requests = get_requests(current_user['id'])
-    return jsonify({'request': requests}),200
+    return jsonify(requests),200
+    #return jsonify({'request': requests}),200
 
 @views2.route('/api/v2/users/requests/<int:id>', methods=['GET'])
 @login_required
 @role_required(0)
 def get_reqsts(current_user,id):
     requests = get_request(id,current_user["id"])
-    return jsonify({'request': requests}),200
+    return jsonify(requests),200
+    #return jsonify({'request': requests}),200
 
 
 
@@ -181,7 +184,8 @@ def admin_get_all_requests(current_user):
 
     """Gets all requests"""
     requests = admin_get_all(current_user['id'])
-    return jsonify({'request': requests}),200
+    return jsonify(requests),200
+    #return jsonify({'request': requests}),200
 
 @views2.route('/api/v2/requests/<int:id>', methods=['GET'])
 @login_required
@@ -190,7 +194,8 @@ def admin_get_request(current_user,id):
 
     """Gets a single  requests"""
     requests = admin_get_request_by_id(id)
-    return jsonify({'request': requests}),200
+    return jsonify(requests),200
+    #return jsonify({'request': requests}),200
 
 @views2.route('/api/v2/requests/<int:id>/approve', methods=['PUT'])
 @login_required
@@ -208,7 +213,7 @@ def approve_requests(current_user,id):
 def disapprove_requests(current_user,id):
     requests = disapprove_request(id)
     return jsonify({
-            "message": "Request disapproved successfully",
+            "message": "Request rejected successfully",
             "id": id
         }),200
 
