@@ -99,7 +99,7 @@ def register():
     if result[0] == "Fail":
         return jsonify({'message': "Email already exists"}), 409
     return jsonify({
-            "message": result[1],
+            "message": "User created!",
             "first_name": first_name,
             "last_name": last_name,
             "email": email
