@@ -9,7 +9,9 @@ GET_USERNAME= "SELECT username FROM users WHERE username=%s"
 GET_TOKEN = "SELECT token FROM users"
 
 
-conn = psycopg2.connect("dbname='maintraq' user='postgres' host='localhost' password='myadmin01?'")
+conn = psycopg2.connect(
+    host=os.getenv("HOST"), dbname=os.getenv("DATABASE"),
+    user=os.getenv("USER"), password=os.getenv("PASSWORD"))
 
 cur = conn.cursor(cursor_factory=RealDictCursor)
 
