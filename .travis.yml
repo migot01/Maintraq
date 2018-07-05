@@ -7,7 +7,7 @@ install:
   - pip install -r requirements.txt
 
 env:
-  - HOST=localhost DATABASE=maintraq USER=postgres PASSWORD=myadmin01?
+  - HOST=localhost DATABASE=maintraq USER=postgres PASSWORD=myadmin01? SECRET_KEY_API=thisissecret
 services:
   - postgresql
 
