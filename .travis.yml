@@ -6,7 +6,7 @@ python:
 install:
   - pip install -r requirements.txt
 
-  env:
+env:
   - HOST=localhost DATABASE=maintraq USER=postgres PASSWORD=myadmin01?
 services:
   - postgresql
