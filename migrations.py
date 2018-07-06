@@ -1,6 +1,8 @@
 import psycopg2
 
-conn = psycopg2.connect("dbname='maintraq' user='postgres' host='localhost' password='myadmin01?'")
+conn = psycopg2.connect(
+    host=os.getenv("HOST"), dbname=os.getenv("DATABASE"),
+    user=os.getenv("USER"), password=os.getenv("PASSWORD"))
 
 cur = conn.cursor()
 
