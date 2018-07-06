@@ -14,8 +14,10 @@ coveralls = "*"
 gunicorn = "*"
 "psycopg2" = "*"
 nose = "*"
+flask-cors = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.6"
