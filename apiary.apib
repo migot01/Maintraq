@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://127.0.0.1:5000
 
 # Maintraq
 
@@ -20,62 +20,457 @@ of their request.
 + 401 `Unauthorized` - authentication failed or user doesn't have permissions for requested operation.
 + 403 `Forbidden` - access denied.404 Not Found - resource was not found.405 Method Not Allowed - requested method is not supported for resource.
 
-## Questions Collection [/requests]
+## Register User [/api/v2/auth/register]
 
 ### Any user can register at this endpoint [POST]
-
-+ Response 200 (application/json)
-
-{
-  "first_name": "Annie",
-  "last_name": "Ndindi",
-  "email": "ndindi@gmail.com",
-  "password": "WEeu00t",
-
-}
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "first_name": "Annie",
+            "last_name": "Ndindi",
+            "email": "ndindi@gmail.com",
+            "password": "WEeu00t"
+
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            { "email": [
+             "ronaldo@gmail.com"
+               ],
+               "first_name": [
+                 "wayne"
+                 ],
+              "last_name": [
+                 "rooney"
+               ],
+             "message": "User created!"
+            }
+
+
+           
+  
+            
+         
++ Response 209 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            "message": "Email already exists"
+            }
+           
+                
+            
+                
+    
+
+## Login User [/api/v2/auth/login]
+### Registered users can login [POST]
+
++ Request (application/json)
+
+        {
+            "email": "ndindi@gmail.com",
+            "password": "WEeu00t"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {"auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzA5OTA3ODAsImlhdCI6MTUzMDk4NzE4MCwic3ViIjoicm9uYWxkb0BnbWFpbC5jb20iLCJ1c2VyX2lkIjo2LCJyb2xlIjowfQ.f4aNmkajno_TlJMrCv8eMMNhIaZyjGkMrZXiNJ6o2SQ",
+              "message": "Login successful",
+              "role": 0
+            }
+            
++ Response 401 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            "message": "Wrong password!"
+            }
+
+## Requests-users [/api/v2/Auth/request]
+### User create request [POST]
+
++ Request (application/json)
+
+        {"title" :"old repairz",
+         "location":"Kisumu",
+         "body":"need more repairs done"
         }
 
 + Response 201 (application/json)
 
     + Headers
 
-            Location: /questions/2
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
+            
+              "message": "Created successfully",
+              "request_title": [
+             "old repairz"
                 ]
+            }
+            
++ Response 209 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+              "message": "Title already exists"
+            }
+            
++ Response 400 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+              "message": "Title cannot be empty"
+            }
+            
+### User view all requests [GET /api/v2/users/requests]
+
++ Response 200 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            [
+              {
+                "body": "need more repairs done",
+                "id": 18,
+                "location": "Kisumu",
+                "status": "Pending",
+                "title": "New repairs",
+                "userid": 6
+                },
+                {
+                    "body": "need more repairs done",
+                    "id": 19,
+                    "location": "Kisumu",
+                    "status": "Pending",
+                    "title": "New repairz",
+                    "userid": 6
+                },
+                {
+                    "body": "need more repairs done",
+                    "id": 20,
+                    "location": "Kisumu",
+                    "status": "Pending",
+                    "title": "old repairz",
+                    "userid": 6
+                }
+            ]
+            
+## User Actions on One Request [/api/v2/users/requests/id]
+### Get a request by id [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "body": "need more repairs done",
+                "id": 18,
+                "location": "Kisumu",
+                "status": "Pending",
+                "title": "New repairs",
+                "userid": 6
+            }
+            
++ Response 401 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "message": "Token is missing! Login to get token."
+            }
+            
+### Update a request [PUT]
+
++ Request (application/json)
+
+        {"title" :"New repairs",
+         "location":"Kisumu",
+         "body":"need more repairs done"
+        }
+
++ Response 201 (application/json)
+
++ Response 200 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "body": "need more repairs done",
+                "id": 18,
+                "location": "Kisumu",
+                "status": "Pending",
+                "title": "New repairs",
+                "userid": 6
+            }
+            
++ Response 401 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "message": "Token is missing! Login to get token."
+            }
+            
+## Requests-Admin [/api/v2/requests]
+## Admin Get All
+### Admin get all requusts[GET]
+
++ Response 200 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            [
+                {
+                    "body": "Need help with my car",
+                    "id": 1,
+                    "location": "Kenya",
+                    "status": "Pending",
+                    "title": "maintenanc",
+                    "userid": 4
+                },
+                {
+                    "body": "jjj",
+                    "id": 16,
+                    "location": "",
+                    "status": "Pending",
+                    "title": "",
+                    "userid": 2
+                },
+                {
+                    "body": "Broken headlights",
+                    "id": 17,
+                    "location": "Embu",
+                    "status": "Pending",
+                    "title": "repairs",
+                    "userid": 2
+                },
+                {
+                    "body": "need more repairs done",
+                    "id": 18,
+                    "location": "Kisumu",
+                    "status": "Pending",
+                    "title": "New repairs",
+                    "userid": 6
+                },
+                {
+                    "body": "need more repairs done",
+                    "id": 19,
+                    "location": "Kisumu",
+                    "status": "Pending",
+                    "title": "New repairz",
+                    "userid": 6
+                },
+                {
+                    "body": "need more repairs done",
+                    "id": 20,
+                    "location": "Kisumu",
+                    "status": "Pending",
+                    "title": "old repairz",
+                    "userid": 6
+                }
+            ]
+            
++ Response 401 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "message": "Token is missing! Login to get token."
+            }
+            
++ Response 403 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "message": "Permission Denied"
+            }
+            
+## Admin Approve Request [/api/v2/requests/id/approve]
+### Admin approve request [PUT]
++ Response 200 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "id": 1,
+                "message": "Request approved successfully"
+            }
+            
++ Response 401 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "message": "Token is missing! Login to get token."
+            }
+            
++ Response 403 (application/json)
+
+    + Headers
+    
+
+
+
+    + Body
+
+            {
+            
+                "message": "Permission Denied"
+            }
+            
+## Admin Disapprove Request [/api/v2/requests/id/disapprove]
+### Admin disapprove request [PUT]
+
++ Response 200 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "id": 1,
+                "message": "Request disapproved successfully"
+            }
+            
++ Response 401 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "message": "Token is missing! Login to get token."
+            }
+            
++ Response 403 (application/json)
+
+    + Headers
+    
+
+
+
+    + Body
+
+            {
+            
+                "message": "Permission Denied"
+            }
+            
+## Admin Resolve Request [/api/v2/requests/id/resolve]
+### Admin resolve request [PUT]
+
++ Response 200 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "id": 1,
+                "message": "Request resolved successfully"
+            }
+            
++ Response 401 (application/json)
+
+    + Headers
+
+
+    + Body
+
+            {
+            
+                "message": "Token is missing! Login to get token."
+            }
+            
++ Response 403 (application/json)
+
+    + Headers
+    
+
+
+
+    + Body
+
+            {
+            
+                "message": "Permission Denied"
             }
