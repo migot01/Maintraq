@@ -136,13 +136,12 @@ def create_requests(current_user):
         return jsonify({'message': 'Title cannot be empty'}), 400
     if data['body'] == "":
         return jsonify({'message': 'Description cannot be empty'}), 400
-    if data['location'] == "":
-        return jsonify({'message': 'location cannot be empty'}), 400
+
    
         
     if result[0] == "Fail":
         return jsonify({
-            "message": result[1]
+        "message": result[1]
         }), 201
     return jsonify({
         'message': "Created successfully",
@@ -206,7 +205,7 @@ def admin_get_all_requests(current_user):
     """Gets all requests"""
     requests = admin_get_all(current_user['id'])
     return jsonify(requests),200
-    #return jsonify({'request': requests}),200
+    
 
 @views2.route('/api/v2/requests/<int:id>', methods=['GET'])
 @login_required
@@ -216,7 +215,7 @@ def admin_get_request(current_user,id):
     """Gets a single  requests"""
     requests = admin_get_request_by_id(id)
     return jsonify(requests),200
-    #return jsonify({'request': requests}),200
+    
 
 @views2.route('/api/v2/requests/<int:id>/approve', methods=['PUT'])
 @login_required
