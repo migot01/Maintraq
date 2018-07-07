@@ -2,6 +2,7 @@ from flask import request, jsonify, make_response, Blueprint
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 import os
+import sys
 from app import app
 import datetime
 from functools import wraps
@@ -53,6 +54,13 @@ def role_required(*roles):
             return f(*args, **kwargs)
         return wrapped
     return wrapper
+
+def validate_str_field(string, name):
+    if len(string.strip()) == 0:
+        return {"message": f"{name} can't have empty values"}, 400
+    elif not re.match("^[ A-Za-z0-9_-]*$", string):
+        return {"message": f"{name} invalid datas"}, 400
+    return None
 
 @views2.route('/api/v2/auth/login', methods=['POST'])
 def login():
@@ -120,6 +128,18 @@ def create_requests(current_user):
     UserID = current_user['id']
     requests = Requests(title,location,body,UserID)
     result=requests.add_requests()
+
+    """
+    Validate user response
+    """
+    if data['title'].strip()  == "" or data['title'].strip()  == " ":
+        return jsonify({'message': 'Title cannot be empty'}), 400
+    if data['body'] == "":
+        return jsonify({'message': 'Description cannot be empty'}), 400
+    if data['location'] == "":
+        return jsonify({'message': 'location cannot be empty'}), 400
+   
+        
     if result[0] == "Fail":
         return jsonify({
             "message": result[1]
@@ -129,6 +149,7 @@ def create_requests(current_user):
         'request_title': title
     }),201
 
+
 @views2.route('/api/v2/users/requests', methods=['GET'])
 @login_required
 @role_required(0)
@@ -137,7 +158,7 @@ def get_all_requests(current_user):
     """Gets all requests"""
     requests = get_requests(current_user['id'])
     return jsonify(requests),200
-    #return jsonify({'request': requests}),200
+    
 
 @views2.route('/api/v2/users/requests/<int:id>', methods=['GET'])
 @login_required
@@ -145,7 +166,7 @@ def get_all_requests(current_user):
 def get_reqsts(current_user,id):
     requests = get_request(id,current_user["id"])
     return jsonify(requests),200
-    #return jsonify({'request': requests}),200
+    
 
 
 
