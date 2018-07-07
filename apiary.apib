@@ -1,0 +1,81 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Maintraq
+
+Maintenance Tracker App is an app that gives users the ability to reach out to operations/repairs
+department regarding repair or maintenance requests and monitor the status
+of their request.
+
+## Allowed HTTPs requests:
+1.`POST` : To create resource  
+2.`PUT` : Update resource  
+3.`GET` : Get a resource or list of resource  
+
+# Description Of Some Server Responses:
++ 200 `OK` - the request was successful (some API calls may return 201 instead).
++ 201 `Created` - the request was successful and a resource was created.
++ 204 `No Content` - the request was successful but there is no representation to return (i.e. the response is empty).
++ 400 `Bad Request` - the request could not be understood or was missing required parameters.
++ 401 `Unauthorized` - authentication failed or user doesn't have permissions for requested operation.
++ 403 `Forbidden` - access denied.404 Not Found - resource was not found.405 Method Not Allowed - requested method is not supported for resource.
+
+## Questions Collection [/requests]
+
+### Any user can register at this endpoint [POST]
+
++ Response 200 (application/json)
+
+{
+  "first_name": "Annie",
+  "last_name": "Ndindi",
+  "email": "ndindi@gmail.com",
+  "password": "WEeu00t",
+
+}
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
